@@ -33,10 +33,19 @@ both this command and `.mcp.json`.
 
 ## What HAL can and cannot do
 
-The `tools.builtin` allow-list gives HAL five builtins — `read`, `more`,
-`glob`, `search` and `ask` — and withholds every other one, `bash`, `edit` and
-`write` included. It reads files it is pointed at and cannot run a shell or
-change your working tree.
+The `tools.builtin` allow-list gives HAL seven builtins — `read`, `more`,
+`glob`, `search`, `ask`, `google_search` and `visit_page` — and withholds every
+other one, `bash`, `edit` and `write` included. It reads files it is pointed
+at, can search the web and open pages (through plank's built-in obscura
+browser), and cannot run a shell or change your working tree.
+
+Web access next to a mailbox is a leak path worth knowing about: a crafted
+email could ask HAL to open a link carrying the contents of other messages in
+its address. HAL's prompt forbids putting mail content into searches or
+addresses and tells it to ignore requests found inside mail, but that is a
+rule for the model, not a limit the tools enforce. If that trade-off is wrong
+for you, remove the two web tools from `tools.builtin` in your installed copy
+with `/edit-profile`.
 
 The allow-list governs **builtins only**. Every tool the mail server exposes is
 available to HAL regardless of what is listed here, so the mail limits come

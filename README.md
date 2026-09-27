@@ -1,0 +1,19 @@
+# plank profiles
+
+Profiles for [plank](https://github.com/aovestdipaperino/plank), each in its own
+folder. A profile launches plank as a different agent: its own system prompt,
+its own set of builtin tools, its own settings, logo and accent colour.
+
+Launch one straight from this repository:
+
+    plank --profile aovestdipaperino/plank-profiles:HAL
+
+plank asks before installing it into `~/.plank/profiles/`, then starts it.
+Later launches with the same argument use the installed copy without asking.
+
+| Folder | Profile |
+|---|---|
+| [`HAL`](HAL) | Mail and calendar assistant. Its mail server is not built yet, so for now it can read files and chat. |
+
+The manifest format is documented in plank's
+[`docs/PROFILES.md`](https://github.com/aovestdipaperino/plank/blob/main/docs/PROFILES.md).

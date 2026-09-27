@@ -1,7 +1,7 @@
 {
   "name": "hal",
   "description": "Mail agent over one Outlook mailbox",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Enzo Lombardi",
   "profile": {
     "displayName": "HAL",

@@ -17,13 +17,15 @@ HAL's mail tools come from Softeria's
 no Azure app registration: it signs in with Softeria's own. Its tools are
 limited by `--enabled-tools` to eleven mail tools, and because it requests only
 the permissions its enabled tools need, the token covers `Mail.ReadWrite` and
-never `Mail.Send`.
+never `Mail.Send`. `--extra-scopes User.Read` adds read access to the signed-in
+profile, which the server's own `verify-login` check needs.
 
 Sign in once, in a terminal, **with the same filter** (without it the sign-in
 would ask for every permission the server knows, sending included):
 
     MS365_MCP_TENANT_ID=consumers npx -y @softeria/ms-365-mcp-server@0.156.2 \
       --enabled-tools '^(list-mail-messages|list-mail-folders|list-mail-child-folders|list-mail-folder-messages|get-mail-message|list-mail-attachments|update-mail-message|create-draft-email|create-reply-draft|move-mail-message|create-mail-folder)$' \
+      --extra-scopes User.Read \
       --login
 
 It prints a code and a Microsoft address; open the address, enter the code,

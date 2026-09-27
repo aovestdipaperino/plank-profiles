@@ -6,7 +6,9 @@
         "-y",
         "@softeria/ms-365-mcp-server@0.156.2",
         "--enabled-tools",
-        "^(list-mail-messages|list-mail-folders|list-mail-child-folders|list-mail-folder-messages|get-mail-message|list-mail-attachments|update-mail-message|create-draft-email|create-reply-draft|move-mail-message|create-mail-folder)$"
+        "^(list-mail-messages|list-mail-folders|list-mail-child-folders|list-mail-folder-messages|get-mail-message|list-mail-attachments|update-mail-message|create-draft-email|create-reply-draft|move-mail-message|create-mail-folder)$",
+        "--extra-scopes",
+        "User.Read"
       ],
       "env": {
         "MS365_MCP_TENANT_ID": "consumers",

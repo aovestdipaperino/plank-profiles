@@ -13,7 +13,7 @@ Later launches with the same argument use the installed copy without asking.
 
 | Folder | Profile |
 |---|---|
-| [`HAL`](HAL) | Mail and calendar assistant. Its mail server is not built yet, so for now it can read files and chat. |
+| [`HAL`](HAL) | Mail assistant over one Outlook mailbox, through [`plank-mail-mcp`](https://github.com/aovestdipaperino/plank-mail-mcp). Reads and tidies mail; cannot send or delete. |
 
 The manifest format is documented in plank's
 [`docs/PROFILES.md`](https://github.com/aovestdipaperino/plank/blob/main/docs/PROFILES.md).

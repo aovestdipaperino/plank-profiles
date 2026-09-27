@@ -9,22 +9,20 @@ after that the same command, or `plank --profile hal`, starts it directly.
 Change it from inside a session with `/edit-profile`, and remove it with
 `rm -rf ~/.plank/profiles/hal`.
 
-## The mail server is not built yet
+## The mail server
 
-`.mcp.json` names `plank-mail-mcp`, an MCP server that does not exist yet: an
-IMAP and CalDAV client authenticating by XOAUTH2 against Google and Microsoft,
-with refresh tokens in the macOS Keychain. Until it is built, plank starts HAL
-and reports one MCP server that failed to start. Everything else about the
-profile — its prompt, its identity, its tool containment — works.
+HAL's mail tools come from
+[`plank-mail-mcp`](https://github.com/aovestdipaperino/plank-mail-mcp), an MCP
+server over one Outlook mailbox through Microsoft Graph. Install it and sign in
+once before launching HAL:
 
-The entry is here rather than absent because it is the contract that server has
-to satisfy: the command name, the config path, and the fact that HAL expects
-mail and calendar tools to arrive over MCP.
+    cargo install --git https://github.com/aovestdipaperino/plank-mail-mcp
+    plank-mail-mcp login
 
-Password and app-password authentication are deliberately out of scope, so
-Fastmail, iCloud and self-hosted Dovecot are not supported. Note also that
-Microsoft has been retiring IMAP OAuth for many tenants in favour of Graph;
-confirm your tenant still permits IMAP before relying on this.
+`.mcp.json` starts it with `--config ~/.plank/hal/mail.toml`; the file is
+optional (see that repository's README). Outlook is the only provider for now;
+Gmail is planned. Without a sign-in HAL still starts, and its mail tools say
+the mailbox is not signed in.
 
 ## What HAL can and cannot do
 
@@ -34,5 +32,9 @@ The `tools.builtin` allow-list gives HAL five builtins — `read`, `more`,
 change your working tree.
 
 The allow-list governs **builtins only**. Every tool the mail MCP server
-exposes is available to HAL regardless of what is listed here. If that server
-can send mail, so can HAL when asked.
+exposes is available to HAL regardless of what is listed here, so the mail
+server sets its own limits: HAL can list, search and read mail, mark messages
+read or unread, save drafts, and move messages to a `HAL-processed` folder. It
+cannot send mail (the sign-in never grants that permission) and cannot delete
+it (the server has no such operation, and `HAL-processed` is the only place it
+can move a message to).

@@ -9,6 +9,14 @@ after that the same command, or `plank --profile hal`, starts it directly.
 Change it from inside a session with `/edit-profile`, and remove it with
 `rm -rf ~/.plank/profiles/hal`.
 
+## The model
+
+HAL recommends the `qwen` engine. When Qwen3.8-Flash-Next is already on
+disk (`plank --model qwen` has fetched it once), `--profile hal` runs on it
+instead of your default; otherwise it uses the usual model and says so. A
+`--model` on the command line always wins. This needs plank 6.1.0 or later;
+older releases ignore the setting.
+
 ## The mail server
 
 HAL's mail tools come from Softeria's

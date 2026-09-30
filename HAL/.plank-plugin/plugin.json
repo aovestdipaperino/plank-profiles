@@ -1,12 +1,13 @@
 {
   "name": "hal",
   "description": "Mail agent over one Outlook mailbox",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "author": "Enzo Lombardi",
   "profile": {
     "displayName": "HAL",
     "logo": "hal.png",
-    "accent": "#d0021b",
+    "accent": "#ffffff",
+    "secondary": "#d0021b",
     "systemPrompt": "prompt.md",
     "recommendedModel": "qwen",
     "tools": { "builtin": ["read", "more", "glob", "search", "ask", "google_search", "visit_page"] },

@@ -16,6 +16,7 @@ Later launches with the same argument use the installed copy without asking.
 | Folder | Profile |
 |---|---|
 | [`HAL`](HAL) | Mail assistant over one Outlook mailbox, through Softeria's [`ms-365-mcp-server`](https://github.com/Softeria/ms-365-mcp-server) limited to mail tools. Reads and tidies mail; cannot send or delete. |
+| [`d3v1l`](d3v1l) | Adversarial code-analysis and hardening agent. Reads your codebase like an attacker, writes the proof-of-concept, proposes the fix. Scoped to your own code and authorized targets. |
 
 The manifest format is documented in plank's
 [`docs/PROFILES.md`](https://github.com/aovestdipaperino/plank/blob/main/docs/PROFILES.md), and the [Profiles chapter](https://plank-agent.dev/guide/14-profiles) of the user guide walks through installing, updating and writing one.

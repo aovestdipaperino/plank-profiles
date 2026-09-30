@@ -1,0 +1,30 @@
+{
+  "name": "d3v1l",
+  "description": "Adversarial code-analysis and hardening agent",
+  "version": "0.1.0",
+  "author": "Enzo Lombardi",
+  "profile": {
+    "displayName": "d3v1l",
+    "logo": "d3v1l.png",
+    "accent": "#ff2b2b",
+    "secondary": "#7a0000",
+    "systemPrompt": "prompt.md",
+    "recommendedModel": "d4abliterated",
+    "folderContext": true,
+    "agentsMd": true,
+    "tools": {
+      "builtin": [
+        "read",
+        "more",
+        "glob",
+        "search",
+        "bash",
+        "edit",
+        "write",
+        "ask",
+        "google_search",
+        "visit_page"
+      ]
+    }
+  }
+}

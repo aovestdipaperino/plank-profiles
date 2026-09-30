@@ -36,10 +36,16 @@ wins. The recommendation is never downloaded on your behalf.
 The `tools.builtin` allow-list gives it the tools an adversarial review needs
 and withholds the rest:
 
-- `read`, `more`, `glob`, `search` — read and navigate the codebase.
-- `bash` — run the project's tests, build a fuzz harness, execute a
+- `read`, `more`, `glob`, `search`, `list` — read and navigate the codebase.
+- `bash`, `bash_status`, `bash_stop` — run the project's tests, build and drive
+  a fuzz harness (including long jobs in the background), execute a
   proof-of-concept against the tree.
 - `edit`, `write` — write the failing test, the PoC, and the proposed fix.
+- `skill` — invoke the skills below (and plank's built-ins).
+- `task` — track a multi-step review that survives compaction.
+- `agent`, `fanout` — dispatch parallel specialist sub-agents (the
+  adversarial-review skill fans out security / correctness / failure-mode /
+  testing reviewers).
 - `ask` — interview you about the threat model and what is authorized.
 - `google_search`, `visit_page` — look up a CVE, an advisory, a library's
   security notes.
@@ -49,3 +55,32 @@ git status and any `AGENTS.md`, and works against the project you launched it
 in. Writes stay inside plank's normal write-containment; the prompt asks it to
 keep proof-of-concept code clearly marked and to never send findings anywhere
 off the machine.
+
+## Skills
+
+Because a profile is spliced in as a plugin, d3v1l gets plank's built-in skills
+plus the ones it bundles.
+
+Useful built-ins (always available): **`code-review`** (dispatches a reviewer
+sub-agent and acts on its findings), **`debug`** (diagnoses a misbehaving tool
+or session from plank's error log), and **`verify`** (runs plank itself to show
+a change working). `code-review` needs the `agent` tool, which is why it is in
+the allow-list.
+
+Bundled with the profile:
+
+- **`d3v1l:adversarial-review`** — a structured adversarial pass over a diff or
+  a design: a critical scan, parallel specialist dispatch, a forced
+  devil's-advocate debate, confidence-scored and severity-tiered findings, a
+  guarded fix-first step, and a PR/architecture verdict. Invoke it with
+  `/d3v1l:adversarial-review [--fix] [rounds=N] [architecture]`. It is adapted
+  from Mountain Fung's MIT-licensed
+  [`Claude-code-adversarial-review-skill`](https://github.com/lemon03390/Claude-code-adversarial-review-skill);
+  see `skills/adversarial-review/ATTRIBUTION.md` for the retargeting and the
+  upstream license.
+
+Other public collections worth a look if you want to extend d3v1l — review
+each `SKILL.md` before installing, since prompt injection has been found in a
+meaningful fraction of published skills:
+[`Masriyan/Claude-Code-CyberSecurity-Skill`](https://github.com/Masriyan/Claude-Code-CyberSecurity-Skill)
+and [`SnailSploit/Claude-Red`](https://github.com/SnailSploit/Claude-Red).

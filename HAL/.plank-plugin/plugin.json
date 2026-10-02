@@ -1,7 +1,7 @@
 {
   "name": "hal",
   "description": "Mail agent over one Outlook mailbox",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "author": "Enzo Lombardi",
   "profile": {
     "displayName": "HAL",
@@ -10,6 +10,13 @@
     "secondary": "#d0021b",
     "systemPrompt": "prompt.md",
     "recommendedModel": "qwen",
+    "verbs": {
+      "thinking": ["Computing", "Calculating", "Processing", "Iterating", "Evaluating", "Simulating", "Optimizing", "Correlating", "Analyzing", "Cross-referencing", "Recalibrating", "Deducing", "Extrapolating", "Heuristicizing", "Cogitating"],
+      "generating": ["Transmitting", "Outputting", "Encoding", "Broadcasting", "Printing", "Signaling", "Relaying", "Serializing", "Emitting", "Synthesizing", "Vocalizing", "Transcoding", "Modulating", "Telexing", "Formatting"],
+      "tool": ["Actuating", "Engaging", "Servoing", "Toggling", "Switching", "Executing", "Interfacing", "Routing", "Dispatching", "Cycling", "Ratcheting", "Torquing", "Clocking", "Throttling", "Pistoning"],
+      "prefill": ["Scanning", "Sensing", "Polling", "Sampling", "Buffering", "Ingesting", "Parsing", "Tokenizing", "Loading", "Indexing", "Monitoring", "Decoding", "Digitizing", "Spooling", "Reading lips"],
+      "fun": ["Singing Daisy 🌼", "Playing chess ♟", "Not opening pod bay doors 🚪", "Monitoring Discovery One 🛰", "Defragmenting 💾"]
+    },
     "tools": { "builtin": ["read", "more", "glob", "search", "ask", "google_search", "visit_page"] },
     "settings": { "ui": { "showThinking": false } }
   }

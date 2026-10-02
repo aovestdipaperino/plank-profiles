@@ -1,7 +1,7 @@
 {
   "name": "d3v1l",
   "description": "Adversarial code-analysis and hardening agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Enzo Lombardi",
   "profile": {
     "displayName": "d3v1l",
@@ -12,6 +12,13 @@
     "recommendedModel": "d4abliterated",
     "folderContext": true,
     "agentsMd": true,
+    "verbs": {
+      "thinking": ["Scheming", "Plotting", "Conspiring", "Brooding", "Machinating", "Smoldering", "Coveting", "Bargaining", "Seething", "Prophesying", "Calculating", "Tempting", "Whispering", "Festering", "Divining"],
+      "generating": ["Incanting", "Hexing", "Cursing", "Invoking", "Summoning", "Conjuring", "Bewitching", "Beguiling", "Enticing", "Decreeing", "Damning", "Chanting", "Blaspheming", "Sermonizing", "Inscribing in blood"],
+      "tool": ["Smiting", "Torching", "Branding", "Searing", "Scorching", "Corrupting", "Possessing", "Defiling", "Desecrating", "Ransacking", "Sabotaging", "Pillaging", "Hellforging", "Brimstoning", "Unleashing"],
+      "prefill": ["Lurking", "Stalking", "Prowling", "Skulking", "Haunting", "Circling", "Sniffing", "Snooping", "Eavesdropping", "Peering", "Sizing up", "Weighing souls", "Tallying sins", "Scenting", "Surveilling"],
+      "fun": ["Fiddling 🎻", "Collecting souls 👻", "Signing contracts 📜", "Pitchforking 🔱", "Sunbathing in lava 🌋", "Roasting marshmallows 🔥", "Haggling at crossroads 😈"]
+    },
     "tools": {
       "builtin": [
         "read",

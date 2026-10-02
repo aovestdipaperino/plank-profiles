@@ -9,7 +9,7 @@
     "accent": "#ff2b2b",
     "secondary": "#7a0000",
     "systemPrompt": "prompt.md",
-    "recommendedModel": "d4abliterated",
+    "recommendedModel": "ds4abliterated",
     "folderContext": true,
     "agentsMd": true,
     "verbs": {

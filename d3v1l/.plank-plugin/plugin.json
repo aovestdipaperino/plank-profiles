@@ -1,7 +1,7 @@
 {
   "name": "d3v1l",
-  "description": "Adversarial code-analysis and hardening agent",
-  "version": "0.1.1",
+  "description": "Adversarial code-analysis and hardening agent (ds4vision steered along the abliterated direction)",
+  "version": "0.2.0",
   "author": "Enzo Lombardi",
   "profile": {
     "displayName": "d3v1l",
@@ -9,7 +9,12 @@
     "accent": "#ff2b2b",
     "secondary": "#7a0000",
     "systemPrompt": "prompt.md",
-    "recommendedModel": "ds4abliterated",
+    "recommendedModel": "ds4vision",
+    "steering": {
+      "direction": "abliterated",
+      "attn": 0,
+      "ffn": 1
+    },
     "folderContext": true,
     "agentsMd": true,
     "verbs": {

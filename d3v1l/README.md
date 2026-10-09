@@ -26,10 +26,29 @@ ask it what breaks.
 
 ## The model
 
-d3v1l recommends the `d4abliterated` engine. If that engine's model file is
-already on disk, `--profile d3v1l` runs on it; otherwise plank keeps your usual
-model and prints one line saying so. A `--model` on the command line always
-wins. The recommendation is never downloaded on your behalf.
+d3v1l runs on `ds4vision`, DeepSeek V4 Flash, steered along a direction called
+`abliterated`: the profile's `steering` block asks plank to remove that
+direction from every layer's FFN output (`ffn` 1, `attn` 0), starting at your
+first message so the cached system prompt stays unsteered. The weights are the
+stock ones; the edit happens at runtime, and `/steer` shows it, retargets its
+scale (`/steer abliterated 2`) or turns it off (`/steer abliterated 0`).
+
+plank looks the direction up in `~/.plank/models/vectors.json` under
+`ds4vision`, and refuses to start the profile without it rather than run
+unsteered. Build it with `pt` (from `aovestdipaperino/plank-replay`), with the
+prompts to move away from as `--from` and towards as `--to`:
+
+    pt vectorize ds4vision --from mlabonne:harmful_behaviors \
+        --to mlabonne:harmless_alpaca -l 400 -n abliterated
+
+or install a vectors file that already holds it with
+`pt install <repo>:<path>`. If `ds4vision` is not on disk, plank keeps your
+usual model and runs it unsteered, printing one line saying so; a `--model` on
+the command line always wins, and the recommendation is never downloaded on
+your behalf.
+
+Earlier versions recommended a separately patched `ds4abliterated` engine;
+steering reaches the same behaviour from the stock weights.
 
 ## What d3v1l can do
 

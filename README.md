@@ -1,5 +1,7 @@
 # plank profiles
 
+[![GitHub stars](https://img.shields.io/github/stars/aovestdipaperino/plank-profiles?logo=github&color=brightgreen)](https://github.com/aovestdipaperino/plank-profiles/stargazers)
+
 Profiles for [plank](https://github.com/aovestdipaperino/plank), each in its own
 folder. A profile launches plank as a different agent: its own system prompt,
 its own set of builtin tools, its own settings, logo and accent colour.
